@@ -9,7 +9,15 @@ const questions = [
   },
   {
     question: 'What is the longest river in the world?',
-    answers: ['Nile', 'Amazon', 'Yangtze', 'Mississippi']
+    answers: ['London', 'Berlín', 'París', 'Madrid']
+  },
+  {
+    question: ["Who wrote Romeo and Juliet?"],
+    answers: ["London", "Berlín", "París", "Madrid"]
+  },
+  {
+    question: ["How many planets are there in our solar system?"],
+    answers: ["London", "Berlín", "París", "Madrid"]
   }
 ];
 
