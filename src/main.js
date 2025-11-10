@@ -66,7 +66,6 @@ function render() {
   const q = questions[currentIndex];
   questionP.textContent = q.question;
 
-  // clear answers
   answersDiv.innerHTML = '';
   q.answers.forEach(text => {
     const btn = document.createElement('button');
@@ -79,11 +78,9 @@ function render() {
     answersDiv.appendChild(btn);
   });
 
-  // buttons enabled/disabled based on index
   prev.disabled = currentIndex === 0;
   next.disabled = currentIndex === questions.length - 1;
 }
 
-// initial render
 render();
 
