@@ -1,15 +1,14 @@
 import './style.css'
 
-// Datos del quiz (solo 2 preguntas de ejemplo)
 const questions = [
   { text: 'What is the capital of France?', options: ['London', 'Berlin', 'Paris', 'Madrid'] },
-  { text: 'What is the longest river in the world?', options: ['Nile', 'Amazon', 'Yangtze', 'Mississippi'] }
+  { text: 'What is the longest river in the world?', options: ['London', 'Berlin', 'Paris', 'Madrid'] },
+  { text: 'Who wrote Romeo and Juliet?', options: ['London', 'Berlin', 'Paris', 'Madrid']},
+  { text: 'How many planets are there in our solar system?', options: ['London', 'Berlin', 'Paris', 'Madrid']}
 ];
 
-// Estado inicial
 let currentQuestion = 0;
 
-// Crear HTML inicial
 document.querySelector('#app').innerHTML = `
   <div class="quiz-container">
     <h2>Quiz Question</h2>
@@ -26,11 +25,9 @@ document.querySelector('#app').innerHTML = `
   </div>
 `;
 
-// Eventos
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 
-// Evento delegado para las respuestas
 document.querySelector('.answers').addEventListener('click', e => {
   if (e.target.classList.contains('answer-btn')) {
     document.querySelectorAll('.answer-btn').forEach(btn => btn.classList.remove('selected'));
@@ -38,11 +35,7 @@ document.querySelector('.answers').addEventListener('click', e => {
   }
 });
 
-// Navegar a siguiente pregunta
 next.addEventListener('click', () => {
-  if (!document.querySelector('.answer-btn.selected')) {
-    return alert('Select an answer!');
-  }
   if (currentQuestion < questions.length - 1) {
     currentQuestion++;
     updateQuestion();
@@ -50,7 +43,6 @@ next.addEventListener('click', () => {
   }
 });
 
-// Navegar a pregunta anterior
 prev.addEventListener('click', () => {
   if (currentQuestion > 0) {
     currentQuestion--;
@@ -59,7 +51,6 @@ prev.addEventListener('click', () => {
   }
 });
 
-// Actualizar pregunta y opciones
 function updateQuestion() {
   document.querySelector('.question-text').textContent = questions[currentQuestion].text;
   document.querySelector('.answers').innerHTML = questions[currentQuestion].options
