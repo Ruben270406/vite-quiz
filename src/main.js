@@ -46,6 +46,7 @@ document.querySelector('.answers').addEventListener('click', e => {
   }
 });
 
+// Next
 next.addEventListener('click', () => {
   if (currentQuestion < questions.length - 1) {
     currentQuestion++;
@@ -54,6 +55,7 @@ next.addEventListener('click', () => {
   }
 });
 
+// Previous
 prev.addEventListener('click', () => {
   if (currentQuestion > 0) {
     currentQuestion--;
