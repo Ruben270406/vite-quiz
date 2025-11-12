@@ -1,10 +1,21 @@
 import './style.css'
 
 const questions = [
-  { text: 'What is the capital of France?', options: ['London', 'Berlin', 'Paris', 'Madrid'] },
-  { text: 'What is the longest river in the world?', options: ['Amazonas', 'Nilo', 'Yangtsé', 'Miño'] },
-  { text: 'Who wrote Romeo and Juliet?', options: ['Jane Austen', 'Cervantes', 'William Shakerpeare', 'Charles Dickens']},
-  { text: 'How many planets are there in our solar system?', options: [7, 8, 9, 10]}
+  { text: 'What is the capital of France?',
+    options: ['London', 'Berlin', 'Paris', 'Madrid'] 
+  },
+
+  { text: 'What is the longest river in the world?', 
+    options: ['Amazonas', 'Nilo', 'Yangtsé', 'Miño'] 
+  },
+
+  { text: 'Who wrote Romeo and Juliet?', 
+    options: ['Jane Austen', 'Cervantes', 'William Shakerpeare', 'Charles Dickens']
+  },
+
+  { text: 'How many planets are there in our solar system?', 
+    options: [7, 8, 9, 10]
+  }
 ];
 
 let currentQuestion = 0;
