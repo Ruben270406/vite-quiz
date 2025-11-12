@@ -10,7 +10,7 @@ const questions = [
   },
 
   { text: 'Who wrote Romeo and Juliet?', 
-    options: ['Jane Austen', 'Cervantes', 'William Shakerpeare', 'Charles Dickens']
+    options: ['Jane Austen', 'Cervantes', 'William Shakespeare', 'Charles Dickens']
   },
 
   { text: 'How many planets are there in our solar system?', 
