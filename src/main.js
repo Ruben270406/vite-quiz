@@ -64,6 +64,7 @@ prev.addEventListener('click', () => {
   }
 });
 
+// Update question display
 function updateQuestion() {
   document.querySelector('.question-text').textContent = questions[currentQuestion].text;
   document.querySelector('.answers').innerHTML = questions[currentQuestion].options
