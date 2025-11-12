@@ -53,7 +53,9 @@ const createButton = (text, className) => {
   return button;
 };
 
+// Array to store option buttons
 let optionButtons = [];
+
 const createLi = (textButton) => {
   const li = document.createElement("li");
   let button = createButton(textButton, "answer-btn");
