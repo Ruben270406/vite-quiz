@@ -23,6 +23,7 @@ const mockData = [
     options: ["7", "8", "9", "10"],
   },
 ];
+let storage_AnswersSelected = [];
 
 const TEXT_TITLE = "Quiz Question";
 
@@ -137,3 +138,26 @@ optionButtons.forEach((button) => {
 const resetOptions = () => {
   optionButtons.forEach((button) => button.removeAttribute("style"));
 };
+
+// Store selected answers
+optionButtons.forEach((button, index) => {
+  button.addEventListener("click", (e) => {
+    storage_AnswersSelected[currentQuestionIndex] = index;
+  });
+});
+
+const loadSelectedOptions = () => {
+  optionButtons.forEach((button, index) => {
+    if (storage_AnswersSelected[currentQuestionIndex] === index) {
+      button.style.background = OPTIOON_SELECTED;
+    }
+  });
+};
+
+// Load selected option when changing questions
+buttonsFooter.forEach((button) => {
+  button.addEventListener("click", () => {
+    loadSelectedOptions();
+  });
+});
+
