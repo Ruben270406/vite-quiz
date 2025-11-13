@@ -4,10 +4,12 @@ const mockData = [
   {
     question: "What is the capital of France?",
     options: ["London", "Berlin", "Paris", "Madrid"],
+    optionCorrect: "Paris",
   },
   {
     question: "What is the longest river in the world?",
     options: ["Amazonas", "Nilo", "Yangtsé", "Miño"],
+    optionCorrect: "Amazonas",
   },
   {
     question: "Who wrote Romeo and Juliet?",
@@ -17,17 +19,22 @@ const mockData = [
       "William Shakerpeare",
       "Charles Dickens",
     ],
+    optionCorrect: "William Shakerpeare",
   },
   {
     question: "How many planets are there in our solar system?",
     options: ["7", "8", "9", "10"],
+    optionCorrect: "8",
   },
 ];
+
+// Variables
 let storage_AnswersSelected = [];
 
+// Constants
 const TEXT_TITLE = "Quiz Question";
 
-const TEXT_BUTTONS_ARRAY = ["Previous", "Next"];
+const TEXT_BUTTONS_ARRAY = ["Previous", "Next", "Check"];
 
 const OPTIOON_SELECTED = "#3CB371";
 
@@ -79,6 +86,7 @@ const createFooter = (textButtons) => {
   buttonsFooter = textButtons.map((textButton) => {
     let button = createButton(textButton, "footer-btn");
     if (textButton === "Previous") button.disabled = true;
+    if (textButton === "Check") button.disabled = true;
     divFooter.appendChild(button);
     return button;
   });
@@ -139,11 +147,18 @@ const resetOptions = () => {
   optionButtons.forEach((button) => button.removeAttribute("style"));
 };
 
+const enablecheckButton = () => {
+  buttonsFooter[2].disabled = !(
+    (storage_AnswersSelected.filter(Boolean).length === mockData.length)
+  );
+};
+
 // Quiz 6
 // Store selected answers
 optionButtons.forEach((button, index) => {
   button.addEventListener("click", (e) => {
     storage_AnswersSelected[currentQuestionIndex] = index;
+    enablecheckButton();
   });
 });
 
@@ -161,4 +176,15 @@ buttonsFooter.forEach((button) => {
     loadSelectedOptions();
   });
 });
+
+// Quiz 7
+// Check answers and show score
+buttonsFooter[2].addEventListener("click", () => {       
+  let correctAnswers = 0;
+  storage_AnswersSelected.forEach((question, index) => {
+    if (question === mockData[index].optionCorrect) correctAnswers++;
+   });
+  alert(`${score} correct answers out of ${mockData.length}`);
+});
+
 
