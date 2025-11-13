@@ -139,6 +139,7 @@ const resetOptions = () => {
   optionButtons.forEach((button) => button.removeAttribute("style"));
 };
 
+// Quiz 6
 // Store selected answers
 optionButtons.forEach((button, index) => {
   button.addEventListener("click", (e) => {
